@@ -1,7 +1,7 @@
 package com.fitnessapp.Models;
 import jakarta.persistence.*;
 
-import java.sql.Time;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
@@ -13,15 +13,15 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private String create_at;
+
 
     public User(){}
 
-    public  User( String username, String email, String password, String create_at){
+    public  User( String username, String email, String password){
         this.username = username;
         this.email = email;
         this.password = password;
-        this.create_at = create_at;
+
     }
 
     public  int getId_user() {
@@ -47,12 +47,6 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-    public String getCreate_at() {
-        return create_at;
-    }
-    public void setCreate_at(String create_at) {
-        this.create_at = create_at;
     }
 
 }

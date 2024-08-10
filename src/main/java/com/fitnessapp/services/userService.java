@@ -26,9 +26,22 @@ public  class userService {
     public User createUser(User user) {
         return userRepository.save(user);
     }
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public User updateUser(int id_user, User userDetails) {
+        Optional<User> optionalUser = userRepository.findById(id_user);
+
+        if (optionalUser.isPresent()) {
+            User existingUser = optionalUser.get();
+
+            // Mise à jour des champs de l'utilisateur
+            existingUser.setUsername(userDetails.getUsername());
+            existingUser.setEmail(userDetails.getEmail());
+            existingUser.setPassword(userDetails.getPassword());
+            return userRepository.save(existingUser);
+        } else {
+            throw new RuntimeException("User not found with id " + id_user);
+        }
     }
+
     public void deleteUser(int id_user) {
         userRepository.deleteById(id_user);
     }
