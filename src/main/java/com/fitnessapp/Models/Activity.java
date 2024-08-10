@@ -1,0 +1,23 @@
+package  com.fitnessapp.Models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+
+public  class  Activity{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long id;
+    private String name;
+    private int duration;
+    private int caloriesBurned;
+
+    // Constructeurs, getters, setters
+
+
+}
