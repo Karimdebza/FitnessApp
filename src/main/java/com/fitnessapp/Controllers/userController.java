@@ -37,12 +37,12 @@ public class userController {
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
     @DeleteMapping("/{id_user}")
-    public ResponseEntity<Void> deleteUser(@PathVariable int id_user) {
+    public ResponseEntity<String> deleteUser(@PathVariable int id_user) {
         try {
             userService.deleteUser(id_user);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // 204 No Content
+            return new ResponseEntity<>("User deleted successfully",HttpStatus.OK); // 204 No Content
         } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // 404 Not Found
+            return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND); // 404 Not Found
         }
     }
 
