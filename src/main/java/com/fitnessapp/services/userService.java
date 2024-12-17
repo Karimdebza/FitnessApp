@@ -13,7 +13,7 @@ import java.util.Optional;
 public  class userService {
 
     private final UserRepository userRepository;
-    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     public userService(UserRepository userRepository) {
         this.userRepository = userRepository;
